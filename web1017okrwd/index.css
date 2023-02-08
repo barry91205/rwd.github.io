@@ -1,0 +1,269 @@
+/* 整體設定 */
+body{
+    margin: 24px 10px;
+    font-family: sans-serif;
+}
+/* 最外層 */
+#container{
+    width: 960px;
+    margin: auto;
+}
+/* 頁首區 */
+#header{
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+/* LOGO */
+#logo{float: left;}
+#logo h1{margin: 0;}
+/* 選單列 */
+#nav{
+    /* border: 1px solid red; */
+    float: right;    
+}
+#nav ul{
+    list-style: none;
+}
+#nav li{
+    float: left;
+}
+#nav li a{
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+    font-size: 22px;
+}
+#nav li a:hover{
+    color: tomato;
+}
+
+/* 頁首單元區 */
+#headerpost{
+    margin-bottom: 30px;
+    background-color: #333;
+    /* 線性漸層背景 */
+    background: linear-gradient(#000, #999);
+    /* 因為浮動，避免高度消失 */
+    overflow: hidden;
+}
+/*  左側商品大圖  */
+#headerpost img{float: left;}
+/* 右側商品內容 */
+#headerpost #lead{
+    color: #fff;
+    width: 300px;
+    float: left;
+    margin-left: 20px;
+    /* 左右對齊 */
+    /* text-align: justify; */
+}
+/* MORE */
+#headerpost .more{text-align: right;}
+#headerpost .more a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    background-image: url("./img/more.png");
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
+    background-size: 24px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* 內容區 */
+/* ---------- flex --------------- */
+/* #content{
+    margin-bottom: 30px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+#content .post{
+    width: 220px;
+}
+#content .post img{
+    width: 100%;
+    height: auto;
+} */
+
+/* ------------- float -------------- */
+#content{
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+#content .post{
+    width: 220px;
+    float: left;
+    margin-right: 26px;    
+    text-align: justify;
+}
+/* 刪除最後一個post右側的邊界 */
+#content .post:last-child{margin-right: 0;}
+#content .post img{
+    width: 100%;
+    height: auto;
+} 
+/* 日期與小MORE並排 */
+#content .post .date{
+    float: left;
+    font-size: 14px;
+    margin: 0;
+}
+#content .post .more-s{
+    float: right;
+    font-size: 14px;
+    background-color: #333;
+    color: #fff;
+    margin: 0;    
+    background-image: url("./img/more_small.png");
+    background-repeat: no-repeat;
+    background-position: 98% center;
+    padding: 5px;
+    padding-right: 25px;
+}
+#content .post a{
+    text-decoration: none;
+    color: #333;
+    display: block;
+    overflow: hidden;
+}
+#content .post a:hover{
+    background-color: rgb(220, 244, 253);
+}
+
+/* 頁尾區 */
+#footer{
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+/* WebName */
+#footer p{
+    float: left;
+    margin: 0;
+}
+/* 社群icon */
+#footer #iconmenu{ float: right;}
+#footer #iconmenu ul{
+    margin: 0;
+    padding-top: 3px;
+}
+#footer #iconmenu li{
+    list-style: none;
+    display: inline;
+}
+/* 次選單 */
+#footer #submenu{ clear: both;}
+#footer #submenu ul{
+    margin: 0; 
+    padding: 0;
+    padding-bottom: 3px;
+}
+#footer #submenu li{
+    list-style: none;
+    display: inline;
+}
+/* 次選單的超連結 */
+#footer #submenu a{
+    color: #ff0;
+    text-decoration: none;
+    border-right: 1px dashed #fff;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+/* 取消最後一個線段 */
+#footer #submenu li:last-child a{border: none;}
+
+/* 中尺寸(640-979) */
+@media (min-width:640px) and (max-width:979px){
+    #container{ width: 620px;}
+    /* 頁首區 */
+    #nav{ padding-top: 0;}
+    /* 第二個項目之後換行 */
+    #nav li:nth-child(2){
+        float: none;
+    }
+    /* 頁首單元區 */
+    /* 文字區與圖片重疊在圖片的底部 */
+    #headerpost{position: relative;}
+    #headerpost img{
+        float: none;
+        vertical-align: bottom;
+    }
+    #headerpost #lead{
+        float: none;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        margin: 0;
+        /* width: 100%; */
+        width: auto;
+        padding: 0 20px;
+        padding-bottom: 20px;
+    }
+    #headerpost .date{ float: left; margin: 0;}
+    #headerpost .more{ float: right;margin: 0;}
+
+    /* 內容區 */
+    #content .post{
+        width: 300px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+    /* 偶數的post */
+    #content .post:nth-child(even){
+        margin-right: 0;
+    }
+}
+/* 小尺寸(639以下) */
+@media (max-width:639px){
+    #container{ width: 300px;}
+    /* 頁首區 */
+    #header{margin-bottom: 10px;}
+    #logo{ float: none;}
+    #nav{ float: none; overflow: hidden;}
+    #nav ul{
+        padding: 0;
+        margin: 0;
+    }
+    #nav ul li a{
+        margin-left: 0;
+        font-size: 16px;
+        margin-right: 10px;
+    }
+    /* 頁首區單元區 */
+    #headerpost img{
+        float: none;
+        width: 300px;
+        height: auto;
+        vertical-align: bottom;
+    }
+    #headerpost #lead{
+        float: none;
+        background-color: #000;
+        width: auto;
+        margin: 0;
+        padding: 1px 10px 40px; 
+    }
+    #headerpost .date{
+        float: left;
+        margin: 0;
+    }
+    #headerpost .more{
+        float: right;
+        margin: 0;
+    }
+    /* 內容區 */
+    #content .post{
+        float: none;
+        width: 300px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
